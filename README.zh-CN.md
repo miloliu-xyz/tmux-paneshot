@@ -62,6 +62,16 @@ set -g @paneshot-border-label 'Paneshot'
 4. 打开快照前保存窗口的 border 设置，关闭时恢复原状
 5. 三条退出路径（快捷键 toggle-off、`q` 退出 pager、孤儿引用恢复）统一调用 `cleanup.sh` 清理状态
 
+## 注意事项
+
+默认 pager 使用 `less --mouse` 以支持鼠标滚轮翻页。副作用是 `less` 会接管所有鼠标事件，**拖拽选择文本时需要按住 `Shift`**。这是 tmux mouse mode 下的标准行为。
+
+如果你更需要原生文本选择而非鼠标滚轮，可以关闭它：
+
+```bash
+set -g @paneshot-pager 'less -R'
+```
+
 ## 许可证
 
 MIT

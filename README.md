@@ -64,6 +64,16 @@ set -g @paneshot-border-label 'Paneshot'
 4. Window border settings are saved before applying the snapshot label, and restored on close
 5. Cleanup runs on all exit paths — keybinding toggle-off, `q` to quit pager, and stale reference recovery
 
+## Notes
+
+The default pager uses `less --mouse` to enable mouse wheel scrolling inside the snapshot. As a side effect, `less` captures all mouse events, so **drag-to-select text requires holding `Shift`**. This is standard behavior when tmux mouse mode is on.
+
+If you prefer native text selection over mouse scrolling, you can disable it:
+
+```bash
+set -g @paneshot-pager 'less -R'
+```
+
 ## License
 
 MIT
